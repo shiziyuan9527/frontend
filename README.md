@@ -1,4 +1,4 @@
-# study-pinia
+# study-vue
 
 ## Project setup
 ```
