@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <!-- <span>{{ userStore }}</span> -->
-    <button @click="doClick()">abc</button>
-    <button @click="doClick1()">btn2</button>
-    <el-button>aaa</el-button>
-    <hello />
+    <hello/>
   </div>
 </template>
 
@@ -17,7 +12,7 @@ import Hello from './components/Hello.vue';
 
 export default {
   computed: {
-    
+
   },
   name: 'App',
   components: {
