@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <hello/>
+    <Minio/>
   </div>
 </template>
 
 <script>
 import { useUserStore } from './stores/main';
-import Hello from './components/Hello.vue';
 
+import Hello from './components/Hello.vue';
+import Minio from './components/Minio.vue';
 // const userStore = useUserStore();
 
 export default {
@@ -17,7 +18,9 @@ export default {
   name: 'App',
   components: {
     Hello,
-  },
+    Minio,
+    Minio
+},
   data() {
     return {
       test: '111'
