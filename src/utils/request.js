@@ -1,18 +1,48 @@
 import axios from "axios";
 
-const request = axios.create({
-  url: 'http://localhost:8080'
+axios.interceptors.request.use(config => {
+  return config;
+}, err => {
+  return Promise.reject(err);
 })
 
-export default request
+axios.interceptors.response.use(res => {
+  return res;
+}, err => {
+  return Promise.reject(err);
+})
+
+const SUCCESS_CODE = 200;
+const URL_PREFIX = 'http://localhost:8080';
 
 export function get(url) {
-  return function (params) {
-    return axios.get(url, params)
-      .then(res => {
-        return res.data;
-      }).catch(err => {
-        // todo
-      })
+  return function (params = {}) {
+    return new Promise((resolve, reject) => {
+      axios.get(URL_PREFIX + url, { params })
+        .then(res => {
+          if (res.status === SUCCESS_CODE) {
+            resolve(res.data);
+          }
+        })
+        .catch(err => {
+          reject(err);
+        })
+    })
+  }
+}
+
+export function post(url) {
+  return function (params = {}) {
+    return new Promise((resolve, reject) => {
+      axios.post(URL_PREFIX + url, params)
+        .then(res => {
+          if (res.status === SUCCESS_CODE) {
+            resolve(res.data);
+          }
+        })
+        .catch(err => {
+          reject(err);
+        })
+    })
   }
 }

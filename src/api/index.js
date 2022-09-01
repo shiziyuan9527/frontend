@@ -1,7 +1,11 @@
-import {get} from '../utils/request';
+import {get, post} from '../utils/request';
 // todo
-const queryPerson = get('http://localhost:8080/test/person');
+const queryPerson = get('/test/person');
+const queryPerson1 = post('/test/person');
+
+
 
 export {
-  queryPerson
+  queryPerson,
+  queryPerson1
 }
