@@ -1,13 +1,9 @@
 import { get, post } from '../utils/request';
-import axios from 'axios';
 
-
-const getFiles = get('/minio/list');
-
-export function deleteFile(id) {
-  return axios.post(`http://localhost:8000/minio/delete/${id}`);
+export function getFiles() {
+  return get('/minio/list');
 }
 
-export {
-  getFiles
+export function deleteFile(id) {
+  return post(`/minio/delete/${id}`);
 }

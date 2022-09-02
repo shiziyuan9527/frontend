@@ -23,7 +23,7 @@
             {{ file.size }}B
           </el-col>
           <el-col :span="3">
-            <el-button type="danger" icon="el-icon-delete" circle size="mini" @click="del(file.id)"></el-button>
+            <el-button type="danger" icon="el-icon-delete" circle size="mini" @click="del(file.name)"></el-button>
           </el-col>
         </el-row>
       </div>

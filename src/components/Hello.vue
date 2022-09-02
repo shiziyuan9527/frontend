@@ -7,7 +7,7 @@
 <script>
 import { useUserStore } from '../stores/main';
 import { mapStores } from 'pinia';
-import {queryPerson, queryPerson1} from '../api'
+import {queryPerson} from '../api'
 export default {
   name: 'Hello',
   data() {
@@ -24,9 +24,6 @@ export default {
   mounted() {
     queryPerson().then(data => {
       this.person = data;
-    }),
-    queryPerson1().then(data => {
-      console.log(data);
     })
   }
 
