@@ -42,3 +42,18 @@ export function post(url, params = {}) {
       })
   })
 }
+
+export function request(url, data) {
+  let formData = new FormData();
+  formData.append("files", data);
+
+  let config = {
+    url: URL_PREFIX + url,
+    method: 'post',
+    data: formData,
+    headers: {
+      'Content-Type': undefined
+    }
+  }
+  return axios.request(config);
+}
