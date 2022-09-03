@@ -21,6 +21,7 @@
         </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
+            <el-button size="mini" type="success" @click="download(scope.row.name)">下载</el-button>
             <el-button size="mini" type="danger" @click="del(scope.row.name)">删除</el-button>
           </template>
         </el-table-column>
@@ -31,7 +32,8 @@
 </template>
 
 <script>
-import { getFiles, deleteFile, uploadFile } from '../api/minio'
+import { getFiles, deleteFile, uploadFile, downloadFile } from '../api/minio';
+import axios from 'axios';
 export default {
   name: 'Minio',
   data() {
@@ -77,9 +79,10 @@ export default {
         this.fileList = [];
         this.init();
       });
-    }
+    },
+    download(name) {
+      downloadFile(name);
+    }   
   }
-
-
 }
 </script>
